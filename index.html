@@ -1,68 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accessible Me</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&family=Stick+No+Bills:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
-</head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Jam Box Studios — rehearsal rooms, gear, and reservations. Contact us to book your session." />
+  <title>Jam Box Studios — Accessible Me</title>
 
-<body>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&family=Stick+No+Bills:wght@300&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body itemscope itemtype="https://schema.org/MusicRecordingStudio">
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <div class="container">
-    <div class="site-header">
-      <h1>Jam Box Studios</h1>
-      <div class="main-nav">
+    <!-- Site header / banner -->
+    <header class="site-header" role="banner">
+      <h1 itemprop="name">Jam Box Studios</h1>
+
+      <!-- Primary navigation -->
+      <nav class="main-nav" aria-label="Primary">
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="#" aria-current="page">Home</a></li>
           <li><a href="#">Products</a></li>
           <li><a href="#">Reservation</a></li>
           <li><a href="#">Studio</a></li>
+          <li><a href="#assignment-heading">Assignment</a></li>
         </ul>
-      </div>
-      <img src="https://placekitten.com/1200/900" class="banner">
-    </div>
-    <div class="main-content">
-      <h1>Welcome to Jam Box</h1>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus laboriosam praesentium nostrum ipsa eveniet, officia deserunt cumque eius esse enim, ipsam accusantium autem nihil quaerat sequi perferendis optio quia veritatis.</p>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam perferendis expedita sed itaque odit ipsam omnis, eos voluptates magni fugit culpa voluptatibus, inventore eaque, eligendi voluptatum! Voluptate iusto error voluptatibus.</p>
-      <div class="owner">
-        <h1>Meet the owner</h1>
-        <ul>
-          <li>Name: John Doe</li>
-          <li>Title: CEO</li>
-          <li>Email: johnjoe@jambox.ca</li>
-          <li>Phone: 613-000-0000</li>
+      </nav>
+
+      <!-- Hero image with alt text; Placekitten -> Picsum -->
+      <figure>
+        <img
+          src="https://picsum.photos/1200/900"
+          class="banner"
+          alt="Musician playing guitar in a sound-treated studio with warm lighting"
+          loading="lazy"
+        />
+        <figcaption class="visually-hidden">Jam Box Studios rehearsal space</figcaption>
+      </figure>
+    </header>
+
+    <!-- Main content -->
+    <main id="main" class="main-content" role="main">
+      <section aria-labelledby="welcome-heading">
+        <h2 id="welcome-heading">Welcome to Jam Box</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus laboriosam praesentium nostrum ipsa eveniet, officia deserunt cumque eius esse enim, ipsam accusantium autem nihil quaerat sequi perferendis optio quia veritatis.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam perferendis expedita sed itaque odit ipsam omnis, eos voluptates magni fugit culpa voluptatibus, inventore eaque, eligendi voluptatum! Voluptate iusto error voluptatibus.</p>
+      </section>
+
+      <section class="owner" aria-labelledby="owner-heading">
+        <h2 id="owner-heading">Meet the Owner</h2>
+
+        <!-- Person (schema.org) -->
+        <ul itemscope itemprop="founder" itemtype="https://schema.org/Person">
+          <li><span class="visually-hidden">Name:</span> <span itemprop="name">John Doe</span></li>
+          <li><span class="visually-hidden">Title:</span> <span itemprop="jobTitle">CEO</span></li>
+          <li>
+            <span class="visually-hidden">Email:</span>
+            <a href="mailto:johnjoe@jambox.ca" itemprop="email">johnjoe@jambox.ca</a>
+          </li>
+          <li>
+            <span class="visually-hidden">Phone:</span>
+            <a href="tel:16130000000" itemprop="telephone">613-000-0000</a>
+          </li>
         </ul>
-        <h1>Address</h1>
-        <p>
-          Jambox Studios
-          123 Guitar Road,
-          Musicville, Danceistan
-          B3T 0L0
-        </p>
-      </div>
-      <div class="contact-section">
-        <h1>Contact Us</h1>
-        <form action="thanks.html">
-          <label>Full Name</label>
-          <input type="text" placeholder="Full Name">
-          <input type="text" placeholder="Email">
-          <input type="text" placeholder="Subject">
-          <b>Your Message</b>
-          <textarea></textarea>
+
+        <h3>Address</h3>
+        <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+          <span itemprop="streetAddress">123 Guitar Road</span>,<br />
+          <span itemprop="addressLocality">Musicville</span>,
+          <span itemprop="addressRegion">Danceistan</span><br />
+          <span itemprop="postalCode">B3T 0L0</span>
+        </address>
+      </section>
+
+      <!-- Assignment Info (collapsible, accessible) -->
+      <section class="assignment" aria-labelledby="assignment-heading">
+        <h2 id="assignment-heading">Assignment Information</h2>
+
+        <details>
+          <summary><strong>Hide / Show Assignment Instructions</strong></summary>
+          <div class="assignment__body">
+            <p><strong>Instructions</strong></p>
+            <ol>
+              <li>Fork the repository <em>Accessible Me</em> and clone it to your computer.</li>
+              <li>Using your knowledge of accessibility and the concepts discussed in class, fix the accessibility issues and enhance the accessibility of the given HTML and CSS.</li>
+            </ol>
+
+            <p><strong>Requirements</strong></p>
+            <ul>
+              <li>Fix any <strong>HTML Semantic</strong> issues</li>
+              <li>Fix any <strong>contrast</strong> issues</li>
+              <li>Add <strong>skip links</strong></li>
+              <li>Add appropriate <strong>ARIA roles</strong></li>
+              <li>Add <strong>Schema.org</strong> information where applicable</li>
+              <li>Set up a <strong>GitHub Pages</strong> site for your forked repository</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <section class="contact-section" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Us</h2>
+
+        <!-- Contact form -->
+        <form action="thanks.html" method="post" aria-describedby="contact-help">
+          <p id="contact-help" class="visually-hidden">All fields marked required must be completed before sending.</p>
+
+          <label for="full-name">Full Name <span aria-hidden="true">*</span></label>
+          <input id="full-name" name="fullName" type="text" placeholder="Full Name" autocomplete="name" required />
+
+          <label for="email">Email <span aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" placeholder="Subject" autocomplete="on" />
+
+          <label for="message">Your Message <span aria-hidden="true">*</span></label>
+          <textarea id="message" name="message" placeholder="How can we help?" aria-required="true" required></textarea>
+
           <button type="submit">Send</button>
         </form>
-      </div>
-    </div>
-    <div class="site-footer">
-      &copy; 2021 Jam Box Studios
-    </div>
+      </section>
+    </main>
+
+    <!-- Footer / contentinfo -->
+    <footer class="site-footer" role="contentinfo">
+      <small>
+        &copy; <time datetime="2025">2025</time> <span itemprop="name">Jam Box Studios</span>.
+        <span class="visually-hidden">All rights reserved.</span>
+      </small>
+    </footer>
   </div>
 </body>
-
 </html>
